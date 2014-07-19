@@ -264,8 +264,7 @@ R_API void r_print_code(RPrint *p, ut64 addr, ut8 *buf, int len, char lang) {
 		p->printf ("\"\n");
 		break;
         case 'S':
-        {
-                    p->printf("### %d ###", len);
+     	{
 		    int trunksize=16;
                     for (i=0; !p->interrupt && i<len; i++) {
                             if((i % trunksize ) == 0){
