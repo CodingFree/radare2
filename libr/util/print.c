@@ -265,17 +265,17 @@ R_API void r_print_code(RPrint *p, ut64 addr, ut8 *buf, int len, char lang) {
 		break;
         case 'S':
      	{
-		    int trunksize=16;
-                    for (i=0; !p->interrupt && i<len; i++) {
-                            if((i % trunksize ) == 0){
-                                p->printf ("\nprintf \"");
-                            }
-                            p->printf ("\\0%03x", buf[i]);
-                            if((i % trunksize ) == (trunksize-1)) {
-                                p->printf("\" %s bin", (i <= trunksize) ? ">" : ">>" );
-                            }
-     
+	        int trunksize=16;
+                for (i=0; !p->interrupt && i<len; i++) {
+                    if((i % trunksize ) == 0){
+                        p->printf ("\nprintf \"");
                     }
+                   
+		    p->printf ("\\0%03x", buf[i]);
+                    if((i % trunksize ) == (trunksize-1)) {
+                        p->printf("\" %s bin", (i <= trunksize) ? ">" : ">>" );
+                    }
+                }
 		p->printf("\n");
                 
                 break;
